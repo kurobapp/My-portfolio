@@ -1,0 +1,31 @@
+/* 基本スタイル */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+/* キャンバス風背景 */
+.canvas-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffe0 0%, #f8f8dc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ノイズ効果 */
+.canvas-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAgAB/eytS3QAAAAASUVORK5CYII=') repeat;
+  opacity: 0.1; /* 調整可能: キャンバス感を出す */
+}
