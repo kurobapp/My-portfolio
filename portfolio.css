@@ -1,30 +1,31 @@
-/* 全体のスタイル */
+/* 基本スタイル */
 body {
-    margin: 0; /* マージンをリセット */
-    font-family: Arial, sans-serif; /* フォント設定 */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
 }
 
-/* 背景を設定 */
-.full-img{
-    background-image: url(back.jpeg); /* 画像のURLを指定       */
-    background-size:cover;                 /* 画像のサイズを指定    */
-    width:100%;                              /* 横幅のサイズを指定    */
-    height:400px;                            /* 縦幅のサイズを指定    */
+/* キャンバス風背景 */
+.canvas-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffe0 0%, #f8f8dc 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-/* コンテンツのスタイル */
-
-/* ボタンのスタイル */
-.button {
-    padding: 10px 20px; /* ボタンのパディング */
-    color: white; /* ボタンの文字色 */
-    background-color: #ff5733; /* ボタンの背景色 */
-    border: none; /* ボーダーをなしに設定 */
-    border-radius: 5px; /* 角を丸くする */
-    cursor: pointer; /* カーソルをポインターに変更 */
-    transition: background-color 0.3s; /* ホバー時の背景色変化にアニメーションを追加 */
-}
-
-.button:hover {
-    background-color: #c70039; /* ホバー時の背景色 */
+/* ノイズ効果 */
+.canvas-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAgAB/eytS3QAAAAASUVORK5CYII=') repeat;
+  opacity: 0.1; /* 調整可能: キャンバス感を出す */
 }
