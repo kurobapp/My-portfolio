@@ -8,8 +8,13 @@
 </head>
 <body>
     <div class="canvas-background">
-        <div class="wood-top"></div> <!-- 上部の木の部分 -->
-        
+        <div class="wood-top">
+             <div class="title">掲示板</div> 
+        </div> <!-- 上部の木の部分 -->
+        <div class="wood-bottom"></div> <!-- 下部の木の部分 -->
+        <div class="wood-left"></div> <!-- 左側の木の部分 -->
+        <div class="wood-right"></div> <!-- 右側の木の部分 -->
+
         <div class="header">
             <div class="name">あなたの名前</div>
         </div>
@@ -31,23 +36,12 @@
                 </ul>
                 <div id="skillsPopup" class="popup">スキルの詳細がここに表示されます。</div>
             </div>
-        </div>
-
-        <div class="flex-container">
-            <div class="section" onclick="togglePopup('projectsPopup')">
-                <h2>制作物</h2>
-                <p>制作物の詳細をここに書きます。</p>
-                <div id="projectsPopup" class="popup">制作物の詳細がここに表示されます。</div>
-            </div>
-
             <div class="section" onclick="togglePopup('interestsPopup')">
                 <h2>興味のあること</h2>
                 <p>興味のあることについての情報を書きます。</p>
                 <div id="interestsPopup" class="popup">興味のあることの詳細がここに表示されます。</div>
             </div>
         </div>
-
-        <div class="wood-bottom"></div> <!-- 下部の木の部分 -->
     </div>
 
     <script src="script.js" defer></script> <!-- JavaScriptファイルをリンク -->
