@@ -3,15 +3,15 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* 画面内に収める */
+    overflow-x: hidden; /* 画面内に収める */
 }
 
 /* キャンバスの背景 */
 .canvas-background {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: #f5f5dc; /* 背景の基本色 */
+    width: 100%;
+    min-height: 100vh; /* 最低でもビューポートの高さを確保 */
+    background-color: #f5f5dc;
     padding: 80px 20px;
     box-sizing: border-box;
 }
@@ -68,20 +68,21 @@ html, body {
 
 /* フレックスコンテナ */
 .flex-container {
-    display: flex; /* フレックスボックスを使用 */
-    justify-content: space-between; /* セクション間のスペースを均等に */
+    flex-wrap: wrap; /* 自動で折り返し */
+    justify-content: space-around;
     margin: 20px 0; /* 上下のマージンを調整 */
 }
 
 /* 各セクションの基本スタイル */
-.header, .section {
+.section {
     background: rgba(255, 255, 240, 0.9);
     padding: 15px; /* パディングを少し小さくする */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 2;
     position: relative;
-    flex: 0 0 45%; /* 幅を45%に設定（48%から減少） */
+    flex: 1 1 45%; /* コンテナ内の比率に合わせる */
+    margin: 10px; 
 }
 
 
@@ -95,34 +96,28 @@ html, body {
 }
 
 .section {
-    position: absolute; /* 絶対位置に設定 */
-    padding: 20px; /* パディングを増やして内容の余白を広げる */
-    width: 1000px; /* 幅を指定 */
-    height: 250px; /* 高さを指定 */
-    transition: transform 0.3s; /* ホバー時のアニメーション */
+    padding: 30px;
+    width: auto; /* 自動調整に変更 */
+    height: auto; /* 自動調整に変更 */
+    transition: transform 0.3s;
 }
 
 .section:nth-child(1) { /* 最初のセクション（自己紹介） */
-    top: 20px; /* 上から20px */
-    left: 20px; /* 左から20px */
-    transform: rotate(-7deg); /* 5度傾ける */
+
+    transform: rotate(7deg); /* 5度傾ける */
+    margin-top: 65px;
+    margin-bottom: 65px;
 }
 
 .section:nth-child(2) { /* 二番目のセクション（スキル） */
-    top: 200px; /* 上から20px */
-    right: 100px; /* 右から20px */
-    transform: rotate(7deg); /* 5度傾ける */
+    transform: rotate(-6deg); /* 5度傾ける */
+    margin-bottom: 100px;
 }
 
 .section:nth-child(3) { /* 三番目のセクション（興味のあること） */
-    top: 450px; /* 下から20px */
-    right: 800px; /* 左から20px */
-    transform: rotate(30deg); /* 5度傾ける */
+    transform: rotate(9deg); /* 5度傾ける */
 }
 
-.section:hover {
-    transform: rotate(0); /* ホバー時に元に戻る */
-}
 
 /* 各セクションの見出し */
 .section h2 {
@@ -152,16 +147,79 @@ html, body {
 /* ポップアップスタイル */
 .popup {
     display: none; /* 初期状態では非表示 */
-    position: absolute; /* 各セクションの相対位置に表示 */
+    position: fixed; /* 画面中央に配置するためにfixedに変更 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中央に表示 */
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     z-index: 10; /* 他の要素の上に表示 */
+    width: 80%; /* 必要に応じて幅を調整 */
+    max-width: 400px; /* 最大幅を設定 */
 }
 
+/* 閉じるボタンのスタイル */
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+.popup .close-btn:hover {
+    color: #555; /* ホバー時に少し濃くする */
+}
 /* ポップアップ表示位置の調整 */
 .section {
     position: relative; /* ポップアップを相対的に配置 */
+}
+
+/* モーダルのスタイル */
+/* モーダルのスタイル */
+.modal {
+    display: none; /* 初期状態では非表示 */
+    position: fixed; /* 画面全体に対して固定 */
+    top: 50%; /* 画面の垂直中央 */
+    left: 50%; /* 画面の水平中央 */
+    transform: translate(-50%, -50%); /* 正確に中央に配置 */
+    background: rgba(0, 0, 0, 0.5); /* 半透明の背景 */
+    width: 100%; /* モーダルの幅を画面全体に */
+    height: 100%; /* モーダルの高さも画面全体に */
+    z-index: 1000; /* 他の要素より前面に表示 */
+}
+
+/* モーダル内のコンテンツ */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%; /* モーダルの幅を調整 */
+    max-width: 600px; /* 最大幅を設定 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 0 auto; /* 横方向中央に配置 */
+}
+
+/* 閉じるボタン */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: #555;
 }

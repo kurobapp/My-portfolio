@@ -9,39 +9,47 @@
 <body>
     <div class="canvas-background">
         <div class="wood-top">
-             <div class="title">掲示板</div> 
+             <div class="title">くろばの掲示板</div> 
         </div> <!-- 上部の木の部分 -->
         <div class="wood-bottom"></div> <!-- 下部の木の部分 -->
         <div class="wood-left"></div> <!-- 左側の木の部分 -->
         <div class="wood-right"></div> <!-- 右側の木の部分 -->
 
-        <div class="header">
-            <div class="name">あなたの名前</div>
-        </div>
-
         <div class="flex-container">
             <div class="section" onclick="togglePopup('introPopup')">
                 <h2>自己紹介</h2>
-                <p>ここに自己紹介文が入ります。</p>
-                <div id="introPopup" class="popup">自己紹介の詳細がここに表示されます。</div>
+                <p>私について</p>
+                <div id="introPopup" class="popup">
+                 <button class="close-btn" onclick="closePopup('introPopup')">×</button>
+                自己紹介の詳細がここに表示されます。</div>
             </div>
 
             <div class="section" onclick="togglePopup('skillsPopup')">
-                <h2>スキル</h2>
+                <h2>スキル(私ができることです。)</h2>
                 <ul>
-                    <li>スキル1</li>
-                    <li>スキル2</li>
-                    <li>スキル3</li>
-                    <li>スキル4</li>
+                    <li>python</li>
+                    <li>html&css</li>
+                    <li>JavaScript</li>
                 </ul>
-                <div id="skillsPopup" class="popup">スキルの詳細がここに表示されます。</div>
+                <div id="skillsPopup" class="popup">
+                <button class="close-btn" onclick="closePopup('skillsPopup')">×</button>
+                スキルの詳細がここに表示されます。</div>
             </div>
             <div class="section" onclick="togglePopup('interestsPopup')">
                 <h2>興味のあること</h2>
-                <p>興味のあることについての情報を書きます。</p>
-                <div id="interestsPopup" class="popup">興味のあることの詳細がここに表示されます。</div>
+                <p>私が興味あるもの、勉強しているものを紹介します。</p>
+                <div id="interestsPopup" class="popup">
+                 <button class="close-btn" onclick="closePopup('interestsPopup')">×</button>興味のあることの詳細がここに表示されます。</div>
             </div>
+            <button id="showModalBtn">モーダルを表示</button>
         </div>
+        <div id="modal" class="modal">
+        <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <h2>モーダルタイトル</h2>
+        <p>ここにモーダルのコンテンツが表示されます。</p>
+    </div>
+</div>
     </div>
 
     <script src="script.js" defer></script> <!-- JavaScriptファイルをリンク -->
