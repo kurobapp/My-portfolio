@@ -16,15 +16,14 @@
         <div class="wood-right"></div> <!-- 右側の木の部分 -->
 
         <div class="flex-container">
-            <div class="section" onclick="togglePopup('introPopup')">
+            <div class="section">
                 <h2>自己紹介</h2>
                 <p>私について</p>
                 <div id="introPopup" class="popup">
-                 <button class="close-btn" onclick="closePopup('introPopup')">×</button>
                 自己紹介の詳細がここに表示されます。</div>
             </div>
 
-            <div class="section" onclick="togglePopup('skillsPopup')">
+            <div class="section">
                 <h2>スキル(私ができることです。)</h2>
                 <ul>
                     <li>python</li>
@@ -32,26 +31,27 @@
                     <li>JavaScript</li>
                 </ul>
                 <div id="skillsPopup" class="popup">
-                <button class="close-btn" onclick="closePopup('skillsPopup')">×</button>
                 スキルの詳細がここに表示されます。</div>
             </div>
-            <div class="section" onclick="togglePopup('interestsPopup')">
+            <div class="section">
                 <h2>興味のあること</h2>
                 <p>私が興味あるもの、勉強しているものを紹介します。</p>
                 <div id="interestsPopup" class="popup">
-                 <button class="close-btn" onclick="closePopup('interestsPopup')">×</button>興味のあることの詳細がここに表示されます。</div>
+                興味のあることの詳細がここに表示されます。</div>
             </div>
             <button id="showModalBtn">モーダルを表示</button>
         </div>
         <div id="modal" class="modal">
-        <div class="modal-content">
-        <button class="close-btn" onclick="closeModal()">×</button>
-        <h2>モーダルタイトル</h2>
-        <p>ここにモーダルのコンテンツが表示されます。</p>
-    </div>
-</div>
+            <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <h2>モーダルタイトル</h2>
+            <p>ここにモーダルのコンテンツが表示されます。</p>
+            <p>ここにモーダルのコンテンツが表示されます。</p>
+            <p>ここにモーダルのコンテンツが表示されます。</p>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js" defer></script> <!-- JavaScriptファイルをリンク -->
+<script src="script.js" defer></script>
 </body>
 </html>
