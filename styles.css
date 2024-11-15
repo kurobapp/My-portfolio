@@ -68,21 +68,25 @@ html, body {
 
 /* フレックスコンテナ */
 .flex-container {
-    flex-wrap: wrap; /* 自動で折り返し */
-    justify-content: space-around;
-    margin: 20px 0; /* 上下のマージンを調整 */
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    justify-content: flex-start; /* 上に揃える */
+    align-items: stretch; /* セクションの横幅を画面いっぱいにする */
+    margin: 20px 0;
+    padding: 0 10px; /* 左右の余白を追加 */
 }
 
-/* 各セクションの基本スタイル */
+/* 各セクション */
 .section {
     background: rgba(255, 255, 240, 0.9);
-    padding: 15px; /* パディングを少し小さくする */
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 2;
-    position: relative;
-    flex: 1 1 45%; /* コンテナ内の比率に合わせる */
-    margin: 10px; 
+    position: relative; /* 相対配置 */
+    width: 100%; /* 幅を100%にして画面いっぱいに */
+    margin-bottom: 20px; /* セクション間にスペースを追加 */
+    transition: transform 0.3s; /* 画面サイズ変更時の滑らかなアニメーション */
 }
 
 
@@ -105,17 +109,18 @@ html, body {
 .section:nth-child(1) { /* 最初のセクション（自己紹介） */
 
     transform: rotate(7deg); /* 5度傾ける */
-    margin-top: 65px;
-    margin-bottom: 65px;
+    margin-top: 75px;
+    margin-bottom: 100px;
 }
 
 .section:nth-child(2) { /* 二番目のセクション（スキル） */
     transform: rotate(-6deg); /* 5度傾ける */
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 .section:nth-child(3) { /* 三番目のセクション（興味のあること） */
     transform: rotate(9deg); /* 5度傾ける */
+    margin-bottom: 100px;
 }
 
 
@@ -147,29 +152,57 @@ html, body {
 
 
 .modal {
-    display: none; /* 初期状態では非表示 */
-    position: fixed; /* 画面全体に対して固定 */
-    top: 50%; /* 画面の垂直中央 */
-    left: 50%; /* 画面の水平中央 */
-    transform: translate(-50%, -50%); /* 正確に中央に配置 */
-    background: rgba(0, 0, 0, 0.5); /* 半透明の背景 */
-    width: 100%; /* モーダルの幅を画面全体に */
-    height: 100%; /* モーダルの高さも画面全体に */
-    z-index: 1000; /* 他の要素より前面に表示 */
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7); /* 半透明の黒（モーダル背景） */
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
 }
 
-/* モーダル内のコンテンツ */
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 60%; /* モーダルの幅を調整 */
-    max-width: 600px; /* 最大幅を設定 */
+    background: rgba(255, 255, 240, 0.9); /* 薄い黄色の半透明背景 */
+    color: black; /* 文字色を黒に */
+    padding: 40px;
+    border-radius: 16px;
+    width: 70%;
+    max-width: 800px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    margin: 0 auto; /* 横方向中央に配置 */
+    margin: auto;
 }
-
+.modal-content img {
+    position: absolute; /* 絶対位置にして右端に配置 */
+     display: block; /* 画像をブロック要素として表示 */
+    right: 20px; /* 右端からの距離 */
+    top: 50%; /* 垂直方向中央に配置 */
+    margin-bottom: 20px; /* 画像間の間隔を調整 */
+    transform: translateY(-50%); /* 垂直方向で中央に合わせる */
+    max-width: 30%; /* 画像の最大幅を調整 */
+    height: auto; /* 高さは自動調整 */
+}
+.zoomModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7); /* 半透明の黒（モーダル背景） */
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.zoomModal img {
+    max-width: 90%; /* モーダル内で画像が画面の90%に収まるように設定 */
+    max-height: 80vh; /* 画面の80%の高さまでに制限 */
+    height: auto;
+    width: auto;
+    display: block;
+    transform: translateX(-12.5%) translateY(-50%); /* 垂直方向に10%だけ下げる */
+}
 /* 閉じるボタン */
 .close-btn {
     position: absolute;

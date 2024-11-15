@@ -3,55 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSSファイルをリンク -->
+    <title>これが私のポートフォリオだ</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="canvas-background">
         <div class="wood-top">
              <div class="title">くろばの掲示板</div> 
-        </div> <!-- 上部の木の部分 -->
+        </div>
         <div class="wood-bottom"></div> <!-- 下部の木の部分 -->
         <div class="wood-left"></div> <!-- 左側の木の部分 -->
         <div class="wood-right"></div> <!-- 右側の木の部分 -->
 
         <div class="flex-container">
-            <div class="section">
-                <h2>自己紹介</h2>
-                <p>私について</p>
-                <div id="introPopup" class="popup">
-                自己紹介の詳細がここに表示されます。</div>
+            <!-- セクション -->
+            <div class="section" onclick="openModal('introModal')">
+                <h2>くろばの情報を求む</h2>
+                <p>自己紹介です。</p>
             </div>
 
-            <div class="section">
-                <h2>スキル(私ができることです。)</h2>
+        <div class="section" onclick="openModal('skillsModal')">
+            <h2>くろばの得意分野</h2>
                 <ul>
                     <li>python</li>
-                    <li>html&css</li>
+                    <li>HTML&CSS</li>
                     <li>JavaScript</li>
+                    <li>etc...</li>
                 </ul>
-                <div id="skillsPopup" class="popup">
-                スキルの詳細がここに表示されます。</div>
-            </div>
-            <div class="section">
-                <h2>興味のあること</h2>
-                <p>私が興味あるもの、勉強しているものを紹介します。</p>
-                <div id="interestsPopup" class="popup">
-                興味のあることの詳細がここに表示されます。</div>
-            </div>
-            <button id="showModalBtn">モーダルを表示</button>
         </div>
-        <div id="modal" class="modal">
+        <div class="section" onclick="openModal('createModal')">
+            <h2>くろばが作ったもの</h2>
+            <p>制作物です。</p>
+        </div>
+
+        <!-- 自己紹介モーダル -->
+        <div id="introModal" class="modal">
             <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">×</button>
-            <h2>モーダルタイトル</h2>
-            <p>ここにモーダルのコンテンツが表示されます。</p>
-            <p>ここにモーダルのコンテンツが表示されます。</p>
-            <p>ここにモーダルのコンテンツが表示されます。</p>
+
+                <h2>自己紹介</h2>
+                <p>大阪公立大学工業専門高等学校</p>
+                <p>総合工学システム科</p>
+                <p>知能情報コース2年</p>
+                <p>高本 隼也</p>
+                <p>2007年生まれ 17歳</p>
+                <img src="images/intro-image.jpg" alt="自己紹介画像">
+            </div>
+        </div>
+
+        <!-- スキルモーダル -->
+        <div id="skillsModal" class="modal">
+            <div class="modal-content">
+                <h2>スキル</h2>
+                <p>■Python</p>
+                <!--<img src="images/python-logo.png" alt="Python-logo"-->
+                <p>高専の2年での授業で一番最初に学んだプログラミングです。</p>
+                <p>授業で基礎的な知識を学んでいます。</p>
+                <p>■HTML&CSS</p>
+                <p>このポートフォリオ及び、高専内での活動での、Webサイト作成のため、勉強しています。</p>
+                <!--<img src="images/icon-html.png" alt="heml-logo">
+                <img src="images/icon-css.png" alt="css-logo">-->
+                <p>■JavaScript</p>
+                <p>HTML&CSSと共に活用しています。ですが、JS自体の知識はまだまだ素人のものです。</p>
+                <!--<img src="images/icon-javascript.png" alt="JS-logo">-->
+                <p>■C++</p>
+                <p>授業内のArduinoを使用した実習などで主に使用しており、マイコン制御の勉強をしています。</p>
+                <p>■GitHub</p>
+                <p>高専内でチームでの制作をしており、その際に使用しています。</p>
+            </div>
+        </div>
+        <div id="createModal" class="modal">
+            <div class="modal-content">
+                <h2>制作物</h2>
+                <p>■三目並べ</p>
+                <p>AI相手に、本来勝てない後攻から勝てるかどうか試すゲームです。</p>
+                <a href="https://colab.research.google.com/drive/1bm4gRTAIfW5Uj_XTI7cQT7N0j2voPtqy" target="_blank">制作した三目並べ<br><br></a>
+
+                <p>■CCC_便利ウェブアプリ</p>
+                <p>高専内での活動として、チームで時間割、課題リスト、Todoリスト、カレンダー、チャット機能を詰め込んだ便利Webアプリを開発しています。私はその中で時間割の部分の機能を制作し、高専、公立高校、私立高校と、出来るだけ幅広い学校にも対応できるように時間割を作りました。現在も更新中です。</p>
+                <img src="images/CCC-prt.png" alt="サンプル画像"onclick="openModal('zoomimage')">
+                    <div id="zoomimage" class="zoomModal">
+                        <img src="images/CCC-prt.png" alt="サンプル画像">
+                    </div>
             </div>
         </div>
     </div>
 
-<script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
