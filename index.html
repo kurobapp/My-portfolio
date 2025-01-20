@@ -17,21 +17,24 @@
 
         <div class="flex-container">
             <!-- セクション -->
-            <div class="section" onclick="openModal('introModal')">
+            <div class="section" onclick="openModal('introModal')"id="drag">
+                 <div class="red-dot" onclick="handleDotClick(event)"></div>
                 <h2>くろばの情報を求む</h2>
                 <p>自己紹介です。</p>
             </div>
 
         <div class="section" onclick="openModal('skillsModal')">
+            <div class="red-dot" onclick="handleDotClick(event)"></div>
             <h2>くろばの得意分野</h2>
-                <ul>
+                <p>
                     <li>python</li>
                     <li>HTML&CSS</li>
                     <li>JavaScript</li>
                     <li>etc...</li>
-                </ul>
+                </p>
         </div>
         <div class="section" onclick="openModal('createModal')">
+            <div class="red-dot" onclick="handleDotClick(event)"></div>
             <h2>くろばが作ったもの</h2>
             <p>制作物です。</p>
         </div>
@@ -80,9 +83,35 @@
 
                 <a href="https://github.com/misorange/Organisator">■CCC_便利ウェブアプリ</a>
                 <p>高専内での活動として、チームで時間割、課題リスト、Todoリスト、カレンダー、チャット機能を詰め込んだ便利Webアプリを開発しています。私はその中で時間割の部分の機能を制作し、高専、公立高校、私立高校と、出来るだけ幅広い学校にも対応できるように時間割を作りました。現在も更新中です。</p>
-                <img src="images/CCC-prt.png" alt="サンプル画像"onclick="openModal('zoomimage')">
-                    <div id="zoomimage" class="zoomModal">
+                <img src="images/CCC-prt.png"onclick="openModal('zoomimage1')">
+                <br><br><br><br>
+
+
+                <a href="https://github.com/kurobapp/Battle-Plant">■バトルプラント</a>
+                <p>高専に入学して初めて取り組んだ個人での大規模な制作物となっています。2024年の集大成として制作しました。今回のプロジェクトは、コマンド型のゲームで、ポケモンの対戦要素を簡単に楽しめるようなゲームを目指しています。対戦システムには、じゃんけんの要素を取り入れ、シンプルながらも戦略性を感じられるものにしました。さらに、じゃんけんのなかであえて手を出さない防御をシステムを採用することでその単純なルールをさらに奥深いものに仕上げています。現在、まだすべての要素は実装されていませんが、基本的な部分は完成しています。ぜひ、ダウンロードして実際にプレイしてみてください。プレイすることで、どのようにゲームが進化していくのか、体験していただけると思います。</p>
+                <br><br><br><br>
+                <img src="images/BP1.png" alt="サンプル画像" style="position: absolute; top: 850px; left: 25px;"onclick="openModal('zoomimage2')">
+                <br>
+                <img src="images/BP2.png" alt="サンプル画像"style="position: absolute; top: 850px; left: 150px;"onclick="openModal('zoomimage3')">
+                <br>
+                <img src="images/BP3.png" alt="サンプル画像"style="position: absolute; top: 850px; left: 350px;"onclick="openModal('zoomimage4')">
+                <br>
+                <img src="images/BP4.png" alt="サンプル画像"style="position: absolute; top: 850px; left: 550px;"onclick="openModal('zoomimage5')">
+
+                    <div id="zoomimage1" class="zoomModal">
                         <img src="images/CCC-prt.png" alt="サンプル画像">
+                    </div>
+                    <div id="zoomimage2" class="zoomModal">
+                        <img src="images/BP1.png" alt="サンプル画像">
+                    </div>
+                    <div id="zoomimage3" class="zoomModal">
+                        <img src="images/BP2.png" alt="サンプル画像">
+                    </div>
+                    <div id="zoomimage4" class="zoomModal">
+                        <img src="images/BP3.png" alt="サンプル画像">
+                    </div>
+                    <div id="zoomimage5" class="zoomModal">
+                        <img src="images/BP4.png" alt="サンプル画像">
                     </div>
             </div>
         </div>

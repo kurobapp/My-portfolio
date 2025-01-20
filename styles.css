@@ -69,7 +69,7 @@ html, body {
 /* フレックスコンテナ */
 .flex-container {
     display: flex;
-    flex-direction: column; /* 縦に並べる */
+    flex-direction: column; /* 縦に並べる */要素をマウスで好きに動かせるようにするのってなんて調べればいい？
     justify-content: flex-start; /* 上に揃える */
     align-items: stretch; /* セクションの横幅を画面いっぱいにする */
     margin: 20px 0;
@@ -88,6 +88,27 @@ html, body {
     margin-bottom: 20px; /* セクション間にスペースを追加 */
     transition: transform 0.3s; /* 画面サイズ変更時の滑らかなアニメーション */
 }
+
+
+.red-dot {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 3;
+
+}
+.red-dot.clicked {
+    background-color: #f5f5dc;
+    box-shadow: none; /* 影を消す */
+}
+
 
 
 /* 名前のスタイル */
@@ -194,6 +215,7 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 1000;
+
 }
 .zoomModal img {
     max-width: 90%; /* モーダル内で画像が画面の90%に収まるように設定 */
@@ -202,6 +224,9 @@ html, body {
     width: auto;
     display: block;
     transform: translateX(-12.5%) translateY(-50%); /* 垂直方向に10%だけ下げる */
+    justify-content: center; /* 横方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+    display: flex; /* フレックスボックスで中央揃え */
 }
 /* 閉じるボタン */
 .close-btn {
