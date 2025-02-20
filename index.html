@@ -38,6 +38,11 @@
             <h2>くろばが作ったもの</h2>
             <p>制作物です。</p>
         </div>
+        <div class="section" onclick="openModal('createModal1')">
+            <div class="red-dot" onclick="handleDotClick(event)"></div>
+            <h2>くろばが作ったもの2</h2>
+            <p>制作物です。</p>
+        </div>
 
         <!-- 自己紹介モーダル -->
         <div id="introModal" class="modal">
@@ -113,6 +118,29 @@
                     <div id="zoomimage5" class="zoomModal">
                         <img src="images/BP4.png" alt="サンプル画像">
                     </div>
+            </div>
+        </div>
+        <div id="createModal1" class="modal">
+            <div class="modal-content">
+                <h2>制作物2</h2>
+                <a href="https://github.com/kurobapp/Stopwatch" target="_blank">■ストップウォッチ</a>
+                <p>2025年の2月に12時間程度かけて制作しました。一般的に必要とされているストップウォッチとタイマー機能を持っています。 特徴は主に2つあり、圧倒的な使いやすさだけの追求と勉強ボタンという独自の機能です。使いやすさについては、UIがとても少なくプログラムを動かしてから使用までの時間がとても少なく、使い方を知らなくても直感的に使うことができます。勉強ボタンについては、家での勉強を想定し、僕にとってほぼ最適解の勉強時間の管理を行ってくれます。ボタンをクリックすると1分のタイマーが起動し、勉強時間が始まります。タイマーの後、休憩時間が始まり、その後、勉強時間+1され、また、勉強時間が始まります。休憩時間は勉強時間の半分で、勉強時間が25分、休憩時間は5分を超えることがないようになっているため、最終的には、ポモドーロ・テクニックに収束するようになっています。</p>
+                <br><br><br>
+                <img src="images/SW1.png" alt="サンプル画像" style="position: absolute; top: 500px; left: 25px;"onclick="openModal('zoomimage6')">
+                <br>
+                <img src="images/SW2.png" alt="サンプル画像" style="position: absolute; top: 500px; left: 250px;"onclick="openModal('zoomimage7')">
+                <br>
+                <img src="images/SW3.png" alt="サンプル画像" style="position: absolute; top: 500px; left: 475px;"onclick="openModal('zoomimage8')">
+                <br>
+                <div id="zoomimage6" class="zoomModal">
+                    <img src="images/SW1.png" alt="サンプル画像">
+                </div>
+                <div id="zoomimage7" class="zoomModal">
+                    <img src="images/SW2.png" alt="サンプル画像">
+                </div>
+                <div id="zoomimage8" class="zoomModal">
+                    <img src="images/SW3.png" alt="サンプル画像">
+                </div>
             </div>
         </div>
     </div>
